@@ -8,6 +8,8 @@ export XDG_DATA_HOME="${XDG_DATA_HOME:-"$HOME/.local/share"}"
 
 export EDITOR=nvim
 
+export GPG_TTY=$(tty)
+
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 
 ###########################
@@ -20,6 +22,11 @@ export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 ###########################
 alias vim=nvim
 alias vi=nvim
+
+###########################
+######## AUTOLOADS ########
+###########################
+autoload -Uz compinit && compinit
 
 ###########################
 ########## EVALS ##########
