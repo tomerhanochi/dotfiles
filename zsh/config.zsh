@@ -7,8 +7,9 @@ export XDG_STATE_HOME="${XDG_STATE_HOME:-"$HOME/.local/state"}"
 export XDG_DATA_HOME="${XDG_DATA_HOME:-"$HOME/.local/share"}"
 
 export EDITOR=nvim
+export VIEWER="$EDITOR"
 
-export GPG_TTY=$(tty)
+export GPG_TTY="$(tty)"
 
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 
@@ -20,8 +21,10 @@ export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 ###########################
 ######### ALIASES #########
 ###########################
-alias vim=nvim
-alias vi=nvim
+alias nano="$EDITOR"
+alias nvim="$EDITOR"
+alias vim="$EDITOR"
+alias vi="$EDITOR"
 
 ###########################
 ######## AUTOLOADS ########
