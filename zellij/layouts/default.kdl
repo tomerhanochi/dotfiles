@@ -1,0 +1,11 @@
+layout {
+	tab focus=true name="main" split_direction="vertical" {
+		pane borderless=true focus=true {
+			command "hx"
+			size "60%"
+		}
+		pane split_direction="horizontal" stacked=true {
+			pane expanded=true name="shell" {}
+		}
+	}
+}
