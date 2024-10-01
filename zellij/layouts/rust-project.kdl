@@ -1,6 +1,6 @@
 layout {
 	tab focus=true name="main" split_direction="vertical" {
-		pane borderless=true focus=true {
+		pane borderless=true focus=true name="helix" {
 			// You can't set environment variables for pane commands.
 			// This is a workaround since bacon needs access to cargo
 			// which is installed in ~/.cargo/bin and not regular $PATH.
@@ -14,7 +14,7 @@ layout {
 				// This is a workaround since bacon needs access to cargo
 				// which is installed in ~/.cargo/bin and not regular $PATH.
 				command "sh"
-				args "-c" "PATH=\"$HOME/.cargo/bin:$PATH\" exec bacon"
+				args "-c" "PATH=\"$HOME/.cargo/bin:$PATH\" exec bacon --summary --wrap --no-help-line"
 			}
 			pane name="shell" {}
 		}
