@@ -8,7 +8,7 @@ layout {
 			args "-c" "PATH=\"$HOME/.cargo/bin:$PATH\" exec hx"
 			size "60%"
 		}
-		pane split_direction="horizontal" stacked=true {
+		pane borderless=true split_direction="horizontal" stacked=true {
 			pane name="bacon" expanded=true {
 				// You can't set environment variables for pane commands.
 				// This is a workaround since bacon needs access to cargo
