@@ -1,2 +1,13 @@
+[[language]]
+name = "rust"
+auto-format = true
+formatter = { command = "rustfmt" }
+
+[language-server.rust-analyzer.config.cargo]
+features = "all"
+
 [language-server.rust-analyzer.config.check]
+command = "clippy"
+
+[language-server.rust-analyzer.config.checkOnSave]
 command = "clippy"
