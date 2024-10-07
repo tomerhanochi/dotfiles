@@ -1,0 +1,23 @@
+*
+# Alacritty
+!alacritty
+!alacritty/*
+# Helix
+!helix
+!helix/*
+# Starship
+!starship
+!starship/*
+# Zellij
+!zellij
+!zellij/*
+# ZSH
+!zsh
+!zsh/*
+zsh/.zcompdump
+zsh/.zsh_history
+
+# Git Ignore
+!.gitignore
+# License
+!LICENSE
