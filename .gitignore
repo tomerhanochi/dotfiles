@@ -1,23 +1,23 @@
 *
 # Alacritty
 !alacritty
-!alacritty/*
+!alacritty/**
 # Helix
 !helix
-!helix/*
+!helix/**
 # Starship
 !starship
-!starship/*
+!starship/**
 # Zellij
 !zellij
-!zellij/*
+!zellij/**
 # ZSH
 !zsh
 !zsh/.zshrc
 !zsh/.zshenv
 # Git
 !git
-!git/*
+!git/**
 
 # Git Ignore
 !.gitignore
