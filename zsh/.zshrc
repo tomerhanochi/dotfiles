@@ -19,4 +19,6 @@ autoload -Uz compinit && compinit
 ###########################
 ########## EVALS ##########
 ###########################
+eval $(/opt/homebrew/bin/brew shellenv)
 eval "$(starship init zsh)"
+source <(fzf --zsh)
