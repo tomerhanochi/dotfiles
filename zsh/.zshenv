@@ -1,3 +1,6 @@
+###########################
+######### EXPORTS #########
+###########################
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 export PATH="$HOME/.cargo/bin:$PATH"
 
@@ -12,3 +15,10 @@ export EDITOR=hx
 export VIEWER="$EDITOR"
 
 export GPG_TTY="$(tty)"
+
+export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
+
+###########################
+########## EVALS ##########
+###########################
+eval $(/opt/homebrew/bin/brew shellenv)
