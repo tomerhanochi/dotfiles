@@ -1,4 +1,4 @@
-[shell]
+[terminal.shell]
 program = "/usr/local/bin/zellij"
 args = [
   "-l",
