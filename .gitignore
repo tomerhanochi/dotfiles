@@ -13,9 +13,11 @@
 !zellij/*
 # ZSH
 !zsh
-!zsh/*
-zsh/.zcompdump
-zsh/.zsh_history
+!zsh/.zshrc
+!zsh/.zshenv
+# Git
+!git
+!git/*
 
 # Git Ignore
 !.gitignore
