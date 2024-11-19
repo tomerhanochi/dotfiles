@@ -1,9 +1,6 @@
 ###########################
 ######### EXPORTS #########
 ###########################
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
-export PATH="$HOME/.cargo/bin:$PATH"
-
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_STATE_HOME="$HOME/.local/state"
@@ -17,6 +14,13 @@ export VIEWER="$EDITOR"
 export GPG_TTY="$(tty)"
 
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
+
+###########################
+######### SCRIPTS #########
+###########################
+if [ -e "$HOME/.cargo/env" ]; then
+  source "$HOME/.cargo/env"
+fi
 
 ###########################
 ########## EVALS ##########
