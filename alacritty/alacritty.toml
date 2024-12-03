@@ -1,16 +1,17 @@
 [terminal.shell]
 program = "/opt/homebrew/bin/zellij"
 args = [
-  "-l",
-  "welcome",
+  "attach",
+  "terminal",
 ]
 
 [window]
 decorations = "None"
 startup_mode = "Maximized"
+option_as_alt = "Both"
 
 [font]
-size = 20
+size = 24
 
 [font.normal]
 family = "Intel One Mono"
