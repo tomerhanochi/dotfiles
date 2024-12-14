@@ -16,13 +16,13 @@ export GPG_TTY="$(tty)"
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 
 ###########################
+########## EVALS ##########
+###########################
+eval $(/opt/homebrew/bin/brew shellenv)
+
+###########################
 ######### SCRIPTS #########
 ###########################
 if [ -e "$HOME/.cargo/env" ]; then
   source "$HOME/.cargo/env"
 fi
-
-###########################
-########## EVALS ##########
-###########################
-eval $(/opt/homebrew/bin/brew shellenv)
