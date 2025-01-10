@@ -15,4 +15,4 @@ autoload -Uz compinit && compinit
 ########## EVALS ##########
 ###########################
 eval "$(starship init zsh)"
-source <(fzf --zsh)
+eval "$(fzf --zsh)"
