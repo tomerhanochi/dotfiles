@@ -2,18 +2,6 @@
 command = "ruff"
 args = ["server"]
 
-[language-server.pyright]
-command = "pyright-langserver"
-args = ["--stdio"]
-pyright.disableOrganizeImports = true
-python.analysis.autoSearchPaths = true
-python.analysis.diagnosticMode = "workspace"
-python.analysis.inlayHint.enable = true
-python.analysis.lint = false
-python.analysis.typeCheckingMode = "strict"
-python.analysis.venvPath = "."
-python.analysis.venv = ".venv"
-
 [language-server.rust-analyzer.config.cargo]
 features = "all"
 
@@ -27,7 +15,7 @@ command = "clippy"
 name = "python"
 auto-format = true
 formatter = { command = "sh", args = ["-c", "ruff check --fix - | ruff format -"] }
-language-servers = ["ruff", "pyright"]
+language-servers = ["ruff"]
 roots = ["pyproject.toml", ".git", ".venv", "venv"]
 
 [[language]]
