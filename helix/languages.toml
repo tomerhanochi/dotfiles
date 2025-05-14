@@ -11,6 +11,8 @@ python.analysis.diagnosticMode = "workspace"
 python.analysis.inlayHint.enable = true
 python.analysis.lint = false
 python.analysis.typeCheckingMode = "strict"
+python.analysis.venvPath = "."
+python.analysis.venv = ".venv"
 
 [language-server.rust-analyzer.config.cargo]
 features = "all"
