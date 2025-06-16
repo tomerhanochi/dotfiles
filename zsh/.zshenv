@@ -7,8 +7,8 @@ export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_EXECUTABLE_HOME="$HOME/.local/bin"
 
-if [ -d "$XDG_EXCEUTABLE_HOME" ] && [[ "$PATH" != *"$XDG_EXCEUTABLE_HOME"* ]]; then
-  export PATH="$XDG_EXCEUTABLE_HOME:$PATH"
+if [ -d "$XDG_EXECUTABLE_HOME" ] && [[ "$PATH" != *"$XDG_EXECUTABLE_HOME"* ]]; then
+  export PATH="$XDG_EXECUTABLE_HOME:$PATH"
 fi
 
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
