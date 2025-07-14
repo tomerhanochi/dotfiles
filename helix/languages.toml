@@ -22,3 +22,7 @@ roots = ["pyproject.toml", ".git", ".venv", "venv"]
 name = "rust"
 auto-format = true
 formatter = { command = "rustfmt" }
+
+[[language]]
+name = "yaml"
+indent = { tab-width = 2, unit = " " }
