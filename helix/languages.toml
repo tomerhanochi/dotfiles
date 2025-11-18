@@ -2,13 +2,13 @@
 command = "ruff"
 args = ["server"]
 
+[language-server.rust-analyzer.config]
+checkOnSave = true
+
 [language-server.rust-analyzer.config.cargo]
 features = "all"
 
 [language-server.rust-analyzer.config.check]
-command = "clippy"
-
-[language-server.rust-analyzer.config.checkOnSave]
 command = "clippy"
 
 [[language]]
@@ -25,4 +25,4 @@ formatter = { command = "rustfmt" }
 
 [[language]]
 name = "yaml"
-indent = { tab-width = 2, unit = " " }
+indent = { tab-width = 2, unit = "  " }
