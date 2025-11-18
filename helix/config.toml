@@ -9,3 +9,6 @@ cursor-line = "hint"
 
 [editor.lsp]
 auto-signature-help = false
+
+[editor.file-picker]
+hidden = false
