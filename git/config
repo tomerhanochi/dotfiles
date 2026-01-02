@@ -10,7 +10,10 @@
 [delta]
 	navigate = true
 
+[gpg]
+	format = ssh
+
 [user]
 	name = tomerhanochi
 	email = git@tomerhanochi.com
-	signingkey = 02383B8344C44030
+	signingkey = ~/.ssh/github.pub

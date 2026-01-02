@@ -10,7 +10,6 @@ brew "zoxide"
 # Utilities
 brew "fzf"
 brew "glow"
-brew "gnupg"
 brew "jq"
 brew "starship"
 
@@ -26,6 +25,9 @@ brew "rustup"
 brew "uv"
 brew "ty"
 brew "ruff"
+
+# Fonts
+cask "font-intel-one-mono"
 
 # Terminal
 cask "alacritty"

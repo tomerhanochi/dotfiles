@@ -21,6 +21,8 @@
 # Git
 !git
 !git/**
+# Setup Scripts
+!setup.zsh
 
 # Git Ignore
 !.gitignore

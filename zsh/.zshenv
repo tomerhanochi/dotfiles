@@ -25,7 +25,7 @@ export CARGO_TARGET_DIR="$XDG_CACHE_HOME/cargo/target"
 ###########################
 ########## EVALS ##########
 ###########################
-eval $(/opt/homebrew/bin/brew shellenv)
+eval $(/opt/homebrew/bin/brew shellenv zsh)
 
 ###########################
 ######### SCRIPTS #########
