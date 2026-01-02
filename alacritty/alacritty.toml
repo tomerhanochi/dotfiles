@@ -1,8 +1,8 @@
 [terminal.shell]
-program = "/opt/homebrew/bin/zellij"
+program = "/bin/zsh"
 args = [
-  "attach",
-  "terminal",
+  "-c",
+  "exec zellij attach terminal",
 ]
 
 [window]
