@@ -1,0 +1,63 @@
+# Core Utils Alternatives
+brew "bat"
+brew "delta"
+brew "eza"
+brew "helix"
+brew "ripgrep"
+brew "zellij"
+brew "zoxide"
+
+# Utilities
+brew "fzf"
+brew "glow"
+brew "gnupg"
+brew "jq"
+brew "starship"
+
+# Containers
+brew "docker"
+brew "docker-credential-helper"
+cask "orbstack"
+
+# Rust
+brew "rustup"
+
+# Python
+brew "uv"
+brew "ty"
+brew "ruff"
+
+# Terminal
+cask "alacritty"
+
+# Window Management
+cask "rectangle"
+
+# Proton
+cask "proton-drive"
+cask "proton-mail"
+cask "proton-pass"
+cask "protonvpn"
+
+# Google
+cask "google-chrome"
+cask "google-drive"
+
+# Mozilla
+cask "firefox"
+
+# Video Players
+cask "iina"
+cask "jellyfin"
+
+# Code Editors
+cask "jetbrains-toolbox"
+
+# Linux ISOs
+cask "soulseek"
+cask "transmission"
+cask "calibre"
+cask "localsend"
+
+# Messaging
+cask "whatsapp"

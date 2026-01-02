@@ -15,6 +15,9 @@
 !zsh
 !zsh/.zshrc
 !zsh/.zshenv
+# Homebrew
+!homebrew
+!homebrew/**
 # Git
 !git
 !git/**
