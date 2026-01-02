@@ -56,7 +56,6 @@ cask "jellyfin"
 cask "jetbrains-toolbox"
 
 # Linux ISOs
-cask "soulseek"
 cask "transmission"
 cask "calibre"
 cask "localsend"
