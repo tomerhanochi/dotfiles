@@ -18,6 +18,8 @@ export VIEWER="$EDITOR"
 
 export GPG_TTY="$(tty)"
 
+export SSH_SK_PROVIDER=/usr/lib/ssh-keychain.dylib
+
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 
 export CARGO_TARGET_DIR="$XDG_CACHE_HOME/cargo/target"
@@ -33,3 +35,4 @@ eval $(/opt/homebrew/bin/brew shellenv zsh)
 if [ -e "$HOME/.cargo/env" ]; then
   source "$HOME/.cargo/env"
 fi
+. "$HOME/.cargo/env"
