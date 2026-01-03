@@ -51,7 +51,7 @@ echo "Done!"
 
 echo "Configuring GitHub authentication and Git signing SSH keys..."
 for label in "${labels[@]}"; do
-  public_key="$(find_pubkey_by_label "${github_label}")"
+  public_key="$(find_pubkey_by_label "${label}")"
   public_key_path="$(pubkey_path "${label}")"
   echo "${public_key}" > "${public_key_path}"
 done
