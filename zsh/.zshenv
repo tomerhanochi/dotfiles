@@ -35,4 +35,3 @@ eval $(/opt/homebrew/bin/brew shellenv zsh)
 if [ -e "$HOME/.cargo/env" ]; then
   source "$HOME/.cargo/env"
 fi
-. "$HOME/.cargo/env"
