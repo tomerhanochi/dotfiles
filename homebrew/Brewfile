@@ -8,7 +8,7 @@ brew "zellij"
 brew "zoxide"
 
 # Utilities
-brew "fzf"
+brew "atuin"
 brew "glow"
 brew "jq"
 brew "starship"

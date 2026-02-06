@@ -1,0 +1,4 @@
+# Pressing Enter key no longer automatically runs command
+enter_accept = false
+
+inline_height = 20

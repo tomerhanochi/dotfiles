@@ -18,6 +18,9 @@
 # Homebrew
 !homebrew
 !homebrew/**
+# Atuin
+!atuin
+!atuin/**
 # Git
 !git
 !git/**
