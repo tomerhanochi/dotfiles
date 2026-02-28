@@ -1,1 +1,33 @@
 *
+# Alacritty
+!ghostty
+!ghostty/**
+# Helix
+!helix
+!helix/**
+# Starship
+!starship
+!starship/**
+# Zellij
+!zellij
+!zellij/**
+# ZSH
+!zsh
+!zsh/.zshrc
+!zsh/.zshenv
+# Homebrew
+!homebrew
+!homebrew/**
+# Atuin
+!atuin
+!atuin/**
+# Git
+!git
+!git/**
+# Setup Scripts
+!setup.zsh
+
+# Git Ignore
+!.gitignore
+# License
+!LICENSE
