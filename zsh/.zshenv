@@ -18,8 +18,6 @@ export VIEWER="$EDITOR"
 
 export GPG_TTY="$(tty)"
 
-export SSH_SK_PROVIDER=/usr/lib/ssh-keychain.dylib
-
 export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 
 export CARGO_TARGET_DIR="$XDG_CACHE_HOME/cargo/target"
