@@ -1,0 +1,19 @@
+# --- Shell & Startup ---
+# Launches zsh and automatically attaches to Zellij
+command = /bin/zsh -c "exec zellij attach terminal"
+
+# --- Window Appearance ---
+# Removes all decorations (Title bars, buttons, etc.)
+maximize = true
+macos-titlebar-style = hidden
+window-decoration = false
+
+# --- Font Settings ---
+font-family = Intel One Mono
+font-size = 18
+
+# --- Input & Keyboard ---
+macos-option-as-alt = true
+
+# --- Theme ---
+theme = Tomorrow Night

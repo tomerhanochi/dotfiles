@@ -30,7 +30,7 @@ brew "ruff"
 cask "font-intel-one-mono"
 
 # Terminal
-cask "alacritty"
+cask "ghostty"
 
 # Window Management
 cask "rectangle"
