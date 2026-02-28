@@ -8,6 +8,7 @@ brew "zellij"
 brew "zoxide"
 
 # Utilities
+brew "fzf"
 brew "atuin"
 brew "glow"
 brew "jq"
@@ -42,7 +43,6 @@ cask "proton-pass"
 cask "protonvpn"
 
 # Google
-cask "google-chrome"
 cask "google-drive"
 
 # Mozilla
@@ -52,13 +52,7 @@ cask "firefox"
 cask "iina"
 cask "jellyfin"
 
-# Code Editors
-cask "jetbrains-toolbox"
-
 # Linux ISOs
 cask "transmission"
 cask "calibre"
 cask "localsend"
-
-# Messaging
-cask "whatsapp"
