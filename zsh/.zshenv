@@ -22,6 +22,8 @@ export STARSHIP_CONFIG="$XDG_CONFIG_HOME/starship/starship.toml"
 
 export CARGO_TARGET_DIR="$XDG_CACHE_HOME/cargo/target"
 
+export SSH_SK_PROVIDER=/usr/lib/ssh-keychain.dylib
+
 ###########################
 ########## EVALS ##########
 ###########################
