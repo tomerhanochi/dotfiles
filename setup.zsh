@@ -121,6 +121,10 @@ EOF
 read
 echo "Done!"
 
+echo "Configuring Touch ID for sudo..."
+sed "s/^#auth/auth/" /etc/pam.d/sudo_local.template | sudo tee /etc/pam.d/sudo_local
+echo "Done!"
+
 echo "Installing homebrew..."
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 echo "Done!"
