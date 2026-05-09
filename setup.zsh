@@ -109,11 +109,11 @@ fi
 cat <<EOF
 Upload the following AUTHENTICATION public key to github:
 
-$(cat "${HOME}/.ssh/${github_cn}.pub")
+$(cat "${HOME}/.ssh/${github_cn}/current.pub")
 
 Upload the following SIGNING public key to github:
 
-$(cat "${HOME}/.ssh/${git_cn}.pub")
+$(cat "${HOME}/.ssh/${git_cn}/current.pub")
 
 Note: Press ENTER to continue.
 EOF
