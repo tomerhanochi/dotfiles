@@ -10,7 +10,8 @@ window-decoration = false
 
 # --- Font Settings ---
 font-family = Intel One Mono
-font-size = 18
+font-size = 16
+font-style = Medium
 
 # --- Input & Keyboard ---
 macos-option-as-alt = true
@@ -20,3 +21,7 @@ theme = Tomorrow Night
 
 # --- Behaviour ---
 confirm-close-surface = false
+
+# --- Shell Integration ---
+shell-integration = zsh
+shell-integration-features = ssh-env,sudo

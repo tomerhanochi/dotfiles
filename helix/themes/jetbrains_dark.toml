@@ -1,0 +1,267 @@
+# JetBrains Dark theme for Helix
+# Adapted from the Zed theme by Artem Evsevev <artem@qrsoft.ru> (Apache 2.0)
+
+# Types
+"type" = "type_green"
+"type.builtin" = "orange"
+"type.parameter" = "teal"
+"type.enum" = { fg = "type_green", modifiers = ["italic", "bold"] }
+"type.enum.variant" = { fg = "cyan_light", modifiers = ["italic", "bold"] }
+
+# Constructors
+"constructor" = { fg = "blue_bright", modifiers = ["italic", "bold"] }
+
+# Constants
+"constant" = { fg = "purple", modifiers = ["italic", "bold"] }
+"constant.builtin" = "orange"
+"constant.builtin.boolean" = "orange"
+"constant.character" = "green"
+"constant.character.escape" = "orange"
+"constant.numeric" = "cyan"
+"constant.numeric.integer" = "cyan"
+"constant.numeric.float" = "cyan"
+
+# Strings
+"string" = "green"
+"string.regexp" = "green"
+"string.special" = "blue_bright"
+"string.special.path" = "blue_bright"
+"string.special.url" = { fg = "blue_bright", modifiers = ["underlined"] }
+"string.special.symbol" = "purple"
+
+# Comments
+"comment" = "grey"
+"comment.line" = "grey"
+"comment.block" = "grey"
+"comment.line.documentation" = { fg = "doc_green", modifiers = ["italic", "bold"] }
+"comment.block.documentation" = { fg = "doc_green", modifiers = ["italic", "bold"] }
+
+# Variables
+"variable" = "fg"
+"variable.builtin" = "pink"
+"variable.parameter" = "fg"
+"variable.other.member" = "purple"
+"variable.other.member.private" = "purple"
+
+# Labels
+"label" = "yellow_dim"
+
+# Punctuation
+"punctuation" = "fg"
+"punctuation.delimiter" = "fg"
+"punctuation.bracket" = "fg"
+"punctuation.special" = "yellow_dim"
+
+# Keywords
+"keyword" = "orange"
+"keyword.control" = { fg = "orange_bright", modifiers = ["bold"] }
+"keyword.control.conditional" = { fg = "orange_bright", modifiers = ["bold"] }
+"keyword.control.repeat" = { fg = "orange_bright", modifiers = ["bold"] }
+"keyword.control.import" = { fg = "orange_bright", modifiers = ["bold"] }
+"keyword.control.return" = { fg = "orange_bright", modifiers = ["bold"] }
+"keyword.control.exception" = { fg = "orange_bright", modifiers = ["bold"] }
+"keyword.operator" = "orange"
+"keyword.directive" = "orange"
+"keyword.function" = "orange"
+"keyword.storage" = "orange"
+"keyword.storage.type" = "orange"
+"keyword.storage.modifier" = "orange"
+
+# Operators
+"operator" = "fg"
+
+# Functions
+"function" = "blue"
+"function.builtin" = "blue"
+"function.method" = "blue"
+"function.method.private" = "blue"
+"function.macro" = "yellow_func"
+"function.special" = "yellow_func"
+
+# Tags
+"tag" = "yellow"
+"tag.builtin" = "yellow"
+
+# Attributes / namespaces / specials
+"attribute" = "yellow_dim"
+"namespace" = "fg"
+"special" = "blue_bright"
+
+# Markup
+"markup.heading.marker" = "grey"
+"markup.heading.1" = { fg = "purple", modifiers = ["bold", "italic"] }
+"markup.heading.2" = { fg = "pink", modifiers = ["bold", "italic"] }
+"markup.heading.3" = { fg = "blue_bright", modifiers = ["bold", "italic"] }
+"markup.heading.4" = { fg = "yellow", modifiers = ["bold", "italic"] }
+"markup.heading.5" = { fg = "type_green", modifiers = ["bold", "italic"] }
+"markup.heading.6" = { fg = "fg_bright", modifiers = ["bold", "italic"] }
+"markup.list" = "fg"
+"markup.list.unnumbered" = "fg"
+"markup.list.numbered" = "fg"
+"markup.list.checked" = "green"
+"markup.list.unchecked" = "grey"
+"markup.bold" = { modifiers = ["bold"] }
+"markup.italic" = { modifiers = ["italic"] }
+"markup.strikethrough" = { modifiers = ["crossed_out"] }
+"markup.link" = "blue_bright"
+"markup.link.url" = { fg = "blue_bright", modifiers = ["underlined"] }
+"markup.link.label" = "blue_bright"
+"markup.link.text" = "blue_bright"
+"markup.quote" = { fg = "grey", modifiers = ["italic", "bold"] }
+"markup.raw" = "green"
+"markup.raw.inline" = "green"
+"markup.raw.block" = "green"
+
+# Diff
+"diff.plus" = "diff_added"
+"diff.plus.gutter" = "diff_added"
+"diff.minus" = "diff_deleted"
+"diff.minus.gutter" = "diff_deleted"
+"diff.delta" = "diff_modified"
+"diff.delta.moved" = "diff_modified"
+"diff.delta.gutter" = "diff_modified"
+
+# UI - core
+"ui.background" = { bg = "bg0" }
+"ui.background.separator" = "border"
+"ui.text" = "fg"
+"ui.text.focus" = "fg_bright"
+"ui.text.inactive" = "text_muted"
+"ui.text.info" = "fg"
+"ui.text.directory" = "blue"
+
+# UI - cursor
+"ui.cursor" = { fg = "bg0", bg = "fg" }
+"ui.cursor.primary" = { fg = "bg0", bg = "fg" }
+"ui.cursor.normal" = { fg = "bg0", bg = "fg" }
+"ui.cursor.insert" = { fg = "bg0", bg = "grey" }
+"ui.cursor.select" = { fg = "bg0", bg = "blue_bright" }
+"ui.cursor.match" = { bg = "search_match" }
+
+# UI - selection / highlight
+"ui.selection" = { bg = "selection" }
+"ui.selection.primary" = { bg = "selection" }
+"ui.highlight" = { bg = "bg3" }
+"ui.cursorline.primary" = { bg = "active_line" }
+"ui.cursorline.secondary" = { bg = "active_line" }
+"ui.cursorcolumn.primary" = { bg = "active_line" }
+"ui.cursorcolumn.secondary" = { bg = "active_line" }
+
+# UI - gutter
+"ui.gutter" = { bg = "bg0" }
+"ui.gutter.selected" = { bg = "active_line" }
+"ui.linenr" = "line_number"
+"ui.linenr.selected" = "active_line_number"
+
+# UI - statusline
+"ui.statusline" = { fg = "fg", bg = "bg2" }
+"ui.statusline.inactive" = { fg = "grey", bg = "bg1" }
+"ui.statusline.normal" = { fg = "bg0", bg = "vim_normal", modifiers = ["bold"] }
+"ui.statusline.insert" = { fg = "bg0", bg = "vim_insert", modifiers = ["bold"] }
+"ui.statusline.select" = { fg = "bg0", bg = "vim_visual", modifiers = ["bold"] }
+"ui.statusline.separator" = "border"
+
+# UI - bufferline
+"ui.bufferline" = { fg = "text_muted", bg = "bg1" }
+"ui.bufferline.active" = { fg = "fg_bright", bg = "bg0", modifiers = ["bold"] }
+"ui.bufferline.background" = { bg = "bg1" }
+
+# UI - popups / menus
+"ui.popup" = { fg = "fg", bg = "bg2" }
+"ui.popup.info" = { fg = "fg", bg = "bg2" }
+"ui.window" = { fg = "border", bg = "bg1" }
+"ui.help" = { fg = "fg", bg = "bg2" }
+"ui.menu" = { fg = "fg", bg = "bg2" }
+"ui.menu.selected" = { fg = "fg_bright", bg = "selection" }
+"ui.menu.scroll" = { fg = "fg", bg = "bg3" }
+"ui.picker.header" = { fg = "fg_bright", bg = "bg2", modifiers = ["bold"] }
+"ui.picker.header.column" = { fg = "text_muted", bg = "bg2" }
+"ui.picker.header.column.active" = { fg = "fg_bright", bg = "bg2", modifiers = ["bold"] }
+
+# UI - virtual elements
+"ui.virtual.ruler" = { bg = "wrap_guide" }
+"ui.virtual.whitespace" = "invisible"
+"ui.virtual.indent-guide" = "wrap_guide"
+"ui.virtual.inlay-hint" = { fg = "hint", bg = "hint_bg" }
+"ui.virtual.inlay-hint.parameter" = { fg = "hint", bg = "hint_bg" }
+"ui.virtual.inlay-hint.type" = { fg = "hint", bg = "hint_bg" }
+"ui.virtual.wrap" = "wrap_guide"
+"ui.virtual.jump-label" = { fg = "orange_bright", modifiers = ["bold"] }
+
+# Diagnostics - gutter
+"hint" = "hint"
+"info" = "info"
+"warning" = "warning"
+"error" = "error"
+
+# Diagnostics - editing area
+"diagnostic" = { underline = { style = "line" } }
+"diagnostic.hint" = { underline = { color = "hint", style = "dotted" } }
+"diagnostic.info" = { underline = { color = "info", style = "dotted" } }
+"diagnostic.warning" = { underline = { color = "warning", style = "curl" } }
+"diagnostic.error" = { underline = { color = "error", style = "curl" } }
+"diagnostic.unnecessary" = { modifiers = ["dim"] }
+"diagnostic.deprecated" = { modifiers = ["crossed_out"] }
+
+[palette]
+
+# backgrounds (dark to light)
+bg0 = "#1e1f22"               # editor / terminal / active tab
+bg1 = "#26282b"               # main UI background
+bg2 = "#393b41"               # panels, popups, statusline
+bg3 = "#43454a"               # selected element
+bg4 = "#494a4d"               # active element
+active_line = "#26282e"
+
+# borders
+border = "#393b41"
+border_focused = "#3474f0"
+
+# foregrounds
+fg = "#bcbec4"                # editor foreground
+fg_bright = "#dfe1e5"         # ui text
+text_muted = "#b0b1b3"
+line_number = "#4b5059"
+active_line_number = "#a1a3ab"
+invisible = "#6f737a"
+wrap_guide = "#393b40"
+
+# syntax
+grey = "#7a7e85"              # comments
+doc_green = "#5f826b"         # doc comments
+orange = "#cf8e6d"            # keywords, escapes
+orange_bright = "#cc7832"     # control-flow keywords
+green = "#6aab73"             # strings
+type_green = "#a6bb77"        # types
+yellow_dim = "#b3ae60"        # attributes, labels
+yellow = "#d5b778"            # tags, selectors
+yellow_func = "#d5a563"       # function.special / macros
+cyan = "#2aacb8"              # numbers
+cyan_light = "#8cc8d4"        # enum members
+teal = "#3cacac"              # type parameters
+blue = "#6aa2d7"              # functions
+blue_bright = "#57aaf7"       # constructors, links, special
+violet = "#8d91dc"            # interfaces
+purple = "#c77dbb"            # constants, properties, headings
+pink = "#e59eae"              # variable.special
+
+# diff / version control
+diff_added = "#549159"
+diff_modified = "#375fad"
+diff_deleted = "#a75749"
+
+# diagnostics
+error = "#fa6675"
+warning = "#f2c55c"
+info = "#3592c4"
+hint = "#868a91"
+hint_bg = "#2d2e32"
+
+# selection / search
+selection = "#214283"
+search_match = "#114957"
+
+# vim mode indicators
+vim_normal = "#90a959"
+vim_insert = "#f4bf75"
+vim_visual = "#6a9fb5"

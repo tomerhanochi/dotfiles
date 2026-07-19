@@ -8,10 +8,9 @@ brew "zellij"
 brew "zoxide"
 
 # Utilities
-brew "fzf"
 brew "atuin"
-brew "glow"
 brew "jq"
+brew "just"
 brew "starship"
 
 # Containers
@@ -55,4 +54,3 @@ cask "jellyfin"
 # Linux ISOs
 cask "transmission"
 cask "calibre"
-cask "localsend"

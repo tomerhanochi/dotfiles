@@ -4,7 +4,9 @@
 !ghostty/**
 # Helix
 !helix
-!helix/**
+!helix/*.toml
+!helix/themes
+!helix/themes/*.toml
 # Starship
 !starship
 !starship/**
@@ -17,7 +19,11 @@
 !zsh/.zshenv
 # Homebrew
 !homebrew
-!homebrew/**
+!homebrew/Brewfile
+!homebrew/trust.json
+# Just
+!just
+!just/**
 # Atuin
 !atuin
 !atuin/**
@@ -26,6 +32,12 @@
 !git/**
 # Setup Scripts
 !setup.zsh
+# Atuin
+!atuin
+!atuin/**
+# SSH
+!ssh
+!ssh/**
 
 # Git Ignore
 !.gitignore

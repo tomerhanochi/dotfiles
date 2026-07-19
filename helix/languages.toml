@@ -2,6 +2,10 @@
 command = "ruff"
 args = ["server"]
 
+[language-server.ty]
+command = "ty"
+args = ["server"]
+
 [language-server.rust-analyzer.config]
 checkOnSave = true
 
@@ -15,7 +19,10 @@ command = "clippy"
 name = "python"
 auto-format = true
 formatter = { command = "sh", args = ["-c", "ruff check --fix - | ruff format -"] }
-language-servers = ["ruff"]
+language-servers = [
+  "ty",
+  "ruff",
+]
 roots = ["pyproject.toml", ".git", ".venv", "venv"]
 
 [[language]]

@@ -1,0 +1,62 @@
+# Global justfile — https://just.systems
+# Run from anywhere with `just -g <recipe>`.
+
+# Create a Secure Enclave (bio-protected) SSH key in the keychain under a common name
+ssh-create name:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    timestamp="$(date +'%Y-%m-%dT%H-%M-%S')"
+    sc_auth create-ctk-identity -N '{{ name }}' -l "${timestamp}" -k p-256-ne -t bio
+
+# Export Secure Enclave SSH keys into ~/.ssh/<common-name>/, pointing `current` at the newest
+ssh-export:
+    #!/usr/bin/env bash
+    set -euo pipefail
+
+    hash_pubkey() {
+      cat "$1" | ssh-keygen -lf - | grep -o 'SHA256:\S*'
+    }
+
+    extract_ctk_identity() {
+      sc_auth list-ctk-identities -t ssh -e b64 | grep "$1"
+    }
+
+    keycount="$(sc_auth list-ctk-identities -t ssh -e b64 | tail -n +2 | wc -l | tr -d '[:space:]')"
+    tmpdir="$(mktemp -d)"
+    trap 'rm -rf "${tmpdir}"' EXIT
+
+    (
+      cd "${tmpdir}"
+      for i in $(seq 0 "${keycount}"); do
+        {
+          if [ "${i}" -ne 0 ]; then yes y | head -n "${i}"; fi
+          if [ "${i}" -ne "${keycount}" ]; then yes n | head -n "$((keycount - i))"; fi
+        } | SSH_ASKPASS_REQUIRE=force SSH_ASKPASS=echo ssh-keygen -w /usr/lib/ssh-keychain.dylib -K -N ""
+
+        public_key_path="$(find . -type f -name '*.pub')"
+        public_key_hash="$(hash_pubkey "${public_key_path}")"
+        private_key_path="$(find . -type f -not -name '*.pub')"
+
+        ctk_identity="$(extract_ctk_identity "${public_key_hash}")"
+        # Key Type | Public Key Hash | Prot | Label | Common Name | Email Address | Valid To | Valid
+        ctk_identity_cn="$(echo "${ctk_identity}" | awk '{print $5}')"
+        ctk_identity_label="$(echo "${ctk_identity}" | awk '{print $4}')"
+
+        directory="${HOME}/.ssh/${ctk_identity_cn}"
+        mkdir -p "${directory}"
+        chmod 700 "${directory}"
+        mv "${public_key_path}" "${directory}/${ctk_identity_label}.pub"
+        mv "${private_key_path}" "${directory}/${ctk_identity_label}"
+      done
+    )
+
+    # Point `current` at the newest label in each exported identity directory. Labels are
+    # `%Y-%m-%dT%H-%M-%S` timestamps, so a lexicographic sort is chronological.
+    sc_auth list-ctk-identities -t ssh -e b64 | tail -n +2 | awk '{print $5}' | sort -u | while read -r cn; do
+      directory="${HOME}/.ssh/${cn}"
+      [ -d "${directory}" ] || continue
+      latest="$(find "${directory}" -maxdepth 1 -type f ! -name '*.pub' ! -name 'current' -exec basename {} ';' | sort | tail -n1)"
+      [ -n "${latest}" ] || continue
+      ln -sf "${latest}" "${directory}/current"
+      ln -sf "${latest}.pub" "${directory}/current.pub"
+    done
