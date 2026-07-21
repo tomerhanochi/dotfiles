@@ -31,7 +31,7 @@ ssh-export:
         {
           if [ "${i}" -ne 0 ]; then yes y | head -n "${i}"; fi
           if [ "${i}" -ne "${keycount}" ]; then yes n | head -n "$((keycount - i))"; fi
-        } | SSH_ASKPASS_REQUIRE=force SSH_ASKPASS=echo ssh-keygen -w /usr/lib/ssh-keychain.dylib -K -N ""
+        } | SSH_ASKPASS_REQUIRE=force SSH_ASKPASS=echo ssh-keygen -w /usr/lib/ssh-keychain.dylib -K -N "" &> /dev/null || true
 
         public_key_path="$(find . -type f -name '*.pub')"
         public_key_hash="$(hash_pubkey "${public_key_path}")"
@@ -42,7 +42,7 @@ ssh-export:
         ctk_identity_cn="$(echo "${ctk_identity}" | awk '{print $5}')"
         ctk_identity_label="$(echo "${ctk_identity}" | awk '{print $4}')"
 
-        directory="${HOME}/.ssh/${ctk_identity_cn}"
+        directory="${HOME}/.ssh/keys/${ctk_identity_cn}"
         mkdir -p "${directory}"
         chmod 700 "${directory}"
         mv "${public_key_path}" "${directory}/${ctk_identity_label}.pub"
@@ -52,9 +52,7 @@ ssh-export:
 
     # Point `current` at the newest label in each exported identity directory. Labels are
     # `%Y-%m-%dT%H-%M-%S` timestamps, so a lexicographic sort is chronological.
-    sc_auth list-ctk-identities -t ssh -e b64 | tail -n +2 | awk '{print $5}' | sort -u | while read -r cn; do
-      directory="${HOME}/.ssh/${cn}"
-      [ -d "${directory}" ] || continue
+    find "${HOME}/.ssh/keys" -type f -name '*.pub' -exec dirname {} ';' | sort -u | while read -r directory; do
       latest="$(find "${directory}" -maxdepth 1 -type f ! -name '*.pub' ! -name 'current' -exec basename {} ';' | sort | tail -n1)"
       [ -n "${latest}" ] || continue
       ln -sf "${latest}" "${directory}/current"
