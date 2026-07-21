@@ -4,7 +4,7 @@ Host *
 Host github.com
     Hostname github.com
     User git
-    IdentityFile ~/.ssh/github.com/keys/current
+    IdentityFile ~/.ssh/keys/github.com/current
     IdentitiesOnly yes
     AddKeysToAgent yes
     SecurityKeyProvider /usr/lib/ssh-keychain.dylib

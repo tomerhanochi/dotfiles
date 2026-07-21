@@ -55,11 +55,11 @@ echo "Done!"
 cat <<EOF
 Upload the following AUTHENTICATION public key to github:
 
-$(cat "${HOME}/.ssh/github.com/keys/current.pub")
+$(cat "${HOME}/.ssh/keys/github.com/current.pub")
 
 Upload the following SIGNING public key to github:
 
-$(cat "${HOME}/.ssh/git/keys/current.pub")
+$(cat "${HOME}/.ssh/keys/git/current.pub")
 EOF
 # Wait for user confirmation
 read "?Press ENTER once you have uploaded the public keys to continue..."
