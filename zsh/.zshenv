@@ -26,6 +26,9 @@ export STARSHIP_CONFIG="${XDG_CONFIG_HOME}/starship/starship.toml"
 
 export CARGO_TARGET_DIR="${XDG_CACHE_HOME}/cargo/target"
 
+# Used by git for signing when using biometrically locked, secure-enclave stored ssh keys
+export SSH_SK_PROVIDER=/usr/lib/ssh-keychain.dylib
+
 # See:
 # 1. https://github.com/zellij-org/zellij/blob/68362d4cf0b20682d16647570cc324a770b687bc/zellij-client/src/lib.rs#L402-L408
 # 2. https://github.com/zellij-org/zellij/blob/68362d4cf0b20682d16647570cc324a770b687bc/zellij-client/src/lib.rs#L337-L340
