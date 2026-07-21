@@ -49,7 +49,7 @@ echo "Including dotfiles ssh config in ~/.ssh/config..."
 mkdir -p ~/.ssh
 chmod 700 ~/.ssh
 touch ~/.ssh/config
-grep -qxF 'Include ~/.config/ssh/*' ~/.ssh/config || printf 'Include ~/.config/ssh/*\n' >> ~/.ssh/config
+grep -qxF 'Include ~/.config/ssh/config' ~/.ssh/config || printf 'Include ~/.config/ssh/config\n' >> ~/.ssh/config
 echo "Done!"
 
 cat <<EOF

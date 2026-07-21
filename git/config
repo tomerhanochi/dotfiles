@@ -19,7 +19,7 @@
 [user]
 	name = tomerhanochi
 	email = git@tomerhanochi.com
-	signingkey = ~/.ssh/git-signing/current.pub
+	signingkey = ~/.ssh/keys/git/current.pub
 
 [column]
 	ui = auto
