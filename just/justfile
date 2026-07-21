@@ -8,7 +8,7 @@ ssh-create name:
     timestamp="$(date +'%Y-%m-%dT%H-%M-%S')"
     sc_auth create-ctk-identity -N '{{ name }}' -l "${timestamp}" -k p-256-ne -t bio
 
-# Export Secure Enclave SSH keys into ~/.ssh/<common-name>/, pointing `current` at the newest
+# Export Secure Enclave SSH keys into ~/.ssh/keys/<common-name>/, pointing `current` at the newest
 ssh-export:
     #!/usr/bin/env bash
     set -euo pipefail
