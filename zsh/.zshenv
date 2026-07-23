@@ -7,7 +7,11 @@ export XDG_STATE_HOME="${HOME}/.local/state"
 export XDG_DATA_HOME="${HOME}/.local/share"
 export XDG_EXECUTABLE_HOME="${HOME}/.local/bin"
 
-for p in "/usr/local/bin" "${XDG_EXECUTABLE_HOME}"; do
+optional_paths=()
+if brew list rustup &> /dev/null; then
+  optional_paths+=("$(brew --prefix rustup)/bin")
+fi
+for p in "/usr/local/bin" "${XDG_EXECUTABLE_HOME}" "${optional_paths[@]}"; do
   if [[ ! -d "${p}" ]] || [[ ":${PATH}:" == *":${p}:"* ]]; then
     continue
   fi
@@ -42,6 +46,3 @@ eval $(/opt/homebrew/bin/brew shellenv zsh)
 ###########################
 ######### SCRIPTS #########
 ###########################
-if [[ -e "${HOME}/.cargo/env" ]]; then
-  source "${HOME}/.cargo/env"
-fi
