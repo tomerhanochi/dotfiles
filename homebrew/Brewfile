@@ -52,5 +52,4 @@ cask "iina"
 cask "jellyfin"
 
 # Linux ISOs
-cask "transmission"
 cask "calibre"
