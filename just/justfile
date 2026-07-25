@@ -58,3 +58,18 @@ ssh-export:
       ln -sf "${latest}" "${directory}/current"
       ln -sf "${latest}.pub" "${directory}/current.pub"
     done
+
+serve-llm model ctx temperature top_p port kv_quantization:
+    llama-server \
+        -hf "{{model}}" \
+        -c "{{ctx}}" \
+        --port "{{port}}" \
+        --temp "{{temperature}}" \
+        --top-p "{{top_p}}" \
+        --no-mmproj \
+        -ngl 99 \
+        -fa on \
+        -ctk "{{ kv_quantization }}" \
+        -ctv "{{ kv_quantization }}"
+
+serve-qwen port="8080": (serve-llm "unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_XL" "65536" "0.15" "0.8" port "q8_0")
