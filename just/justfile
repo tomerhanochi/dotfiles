@@ -73,17 +73,11 @@ ssh-export:
       ln -sf "${latest}.pub" "${directory}/current.pub"
     done
 
-serve-llm model ctx temperature top_p port kv_quantization:
-    llama-server \
-        -hf "{{model}}" \
-        -c "{{ctx}}" \
-        --port "{{port}}" \
-        --temp "{{temperature}}" \
-        --top-p "{{top_p}}" \
-        --no-mmproj \
-        -ngl 99 \
-        -fa on \
-        -ctk "{{ kv_quantization }}" \
-        -ctv "{{ kv_quantization }}"
+llama_cpp_directory := justfile_directory() / ".." / "llama.cpp"
+llama_cpp_models_preset := llama_cpp_directory / "preset.ini"
 
-serve-qwen port="8080": (serve-llm "unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_XL" "65536" "0.15" "0.8" port "q8_0")
+# Run llama-server based on the given preset file
+llama-server port="22251":
+    llama-server --models-preset '{{ llama_cpp_models_preset }}' --port '{{ port }}'
+
+alias llm := llama-server

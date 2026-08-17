@@ -38,6 +38,9 @@
 # SSH
 !ssh_config.d
 !ssh_config.d/**
+# llama.cpp
+!llama.cpp
+!llama.cpp/**
 
 # Git Ignore
 !.gitignore
