@@ -37,19 +37,16 @@ echo "Installing all homebrew formulas and casks..."
 brew bundle install -g
 echo "Done!"
 
+echo "Configuring ssh..."
+just -g ssh-configure
+echo "Done!"
+
 echo "Creating Secure Enclave SSH keys..."
 for cn in git github.com; do
   just -g ssh-create "${cn}"
 done
 
 just -g ssh-export
-echo "Done!"
-
-echo "Including dotfiles ssh config in ~/.ssh/config..."
-mkdir -p ~/.ssh
-chmod 700 ~/.ssh
-touch ~/.ssh/config
-grep -qxF 'Include ~/.config/ssh/config' ~/.ssh/config || printf 'Include ~/.config/ssh/config\n' >> ~/.ssh/config
 echo "Done!"
 
 cat <<EOF

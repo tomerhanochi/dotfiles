@@ -1,18 +1,32 @@
-# Global justfile — https://just.systems
-# Run from anywhere with `just -g <recipe>`.
+set default-script
+set script-interpreter := ['bash', '-euo', 'pipefail']
+
+ssh_directory := home_directory() / ".ssh"
+ssh_config_file := ssh_directory / "config"
+ssh_keys_directory := ssh_directory / "keys"
+
+# Configure .ssh directory and config file.
+ssh-configure:
+  mkdir -p '{{ ssh_directory }}' '{{ ssh_keys_directory }}'
+  chmod 700 '{{ ssh_directory }}' '{{ ssh_keys_directory }}'
+  SSH_CONFIG=$(
+  cat << 'EOF'
+  # Keep this Include at the very bottom of the file.
+  # ssh is first-match-wins, so these defaults silently override any Host block below.
+  Include ~/.config/ssh_config.d/defaults.conf
+  EOF
+  )
+  if ! grep -Fzq "$SSH_CONFIG" '{{ ssh_config_file }}'; then
+      printf "\n%s" "$SSH_CONFIG" >> '{{ ssh_config_file }}'
+  fi
 
 # Create a Secure Enclave (bio-protected) SSH key in the keychain under a common name
 ssh-create name:
-    #!/usr/bin/env bash
-    set -euo pipefail
     timestamp="$(date +'%Y-%m-%dT%H-%M-%S')"
     sc_auth create-ctk-identity -N '{{ name }}' -l "${timestamp}" -k p-256-ne -t bio
 
 # Export Secure Enclave SSH keys into ~/.ssh/keys/<common-name>/, pointing `current` at the newest
 ssh-export:
-    #!/usr/bin/env bash
-    set -euo pipefail
-
     hash_pubkey() {
       cat "$1" | ssh-keygen -lf - | grep -o 'SHA256:\S*'
     }
@@ -42,7 +56,7 @@ ssh-export:
         ctk_identity_cn="$(echo "${ctk_identity}" | awk '{print $5}')"
         ctk_identity_label="$(echo "${ctk_identity}" | awk '{print $4}')"
 
-        directory="${HOME}/.ssh/keys/${ctk_identity_cn}"
+        directory="{{ ssh_keys_directory }}/${ctk_identity_cn}"
         mkdir -p "${directory}"
         chmod 700 "${directory}"
         mv "${public_key_path}" "${directory}/${ctk_identity_label}.pub"
@@ -52,7 +66,7 @@ ssh-export:
 
     # Point `current` at the newest label in each exported identity directory. Labels are
     # `%Y-%m-%dT%H-%M-%S` timestamps, so a lexicographic sort is chronological.
-    find "${HOME}/.ssh/keys" -type f -name '*.pub' -exec dirname {} ';' | sort -u | while read -r directory; do
+    find '{{ ssh_keys_directory }}' -type f -name '*.pub' -exec dirname {} ';' | sort -u | while read -r directory; do
       latest="$(find "${directory}" -maxdepth 1 -type f ! -name '*.pub' ! -name 'current' -exec basename {} ';' | sort | tail -n1)"
       [ -n "${latest}" ] || continue
       ln -sf "${latest}" "${directory}/current"

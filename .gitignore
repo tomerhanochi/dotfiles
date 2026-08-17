@@ -36,8 +36,8 @@
 !atuin
 !atuin/**
 # SSH
-!ssh
-!ssh/**
+!ssh_config.d
+!ssh_config.d/**
 
 # Git Ignore
 !.gitignore
