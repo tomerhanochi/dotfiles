@@ -4,16 +4,19 @@ set script-interpreter := ['bash', '-euo', 'pipefail']
 ssh_directory := home_directory() / ".ssh"
 ssh_config_file := ssh_directory / "config"
 ssh_keys_directory := ssh_directory / "keys"
+ssh_config_directory := ssh_directory / "config.d"
 
 # Configure .ssh directory and config file.
 ssh-configure:
-  mkdir -p '{{ ssh_directory }}' '{{ ssh_keys_directory }}'
-  chmod 700 '{{ ssh_directory }}' '{{ ssh_keys_directory }}'
+  mkdir -p '{{ ssh_directory }}' '{{ ssh_keys_directory }}' '{{ ssh_config_directory }}'
+  chmod 700 '{{ ssh_directory }}' '{{ ssh_keys_directory }}' '{{ ssh_config_directory }}'
   SSH_CONFIG=$(
   cat << 'EOF'
+  # You should only modify files in the directory below.
+  Include {{ ssh_config_directory }}/*
   # Keep this Include at the very bottom of the file.
   # ssh is first-match-wins, so these defaults silently override any Host block below.
-  Include ~/.config/ssh_config.d/defaults.conf
+  Include {{ home_directory() / "ssh_config.d" / "defaults.conf" }}
   EOF
   )
   if ! grep -Fzq "$SSH_CONFIG" '{{ ssh_config_file }}'; then
