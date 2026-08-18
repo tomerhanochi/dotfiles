@@ -16,7 +16,7 @@ ssh-configure:
   Include {{ ssh_config_directory }}/*
   # Keep this Include at the very bottom of the file.
   # ssh is first-match-wins, so these defaults silently override any Host block below.
-  Include {{ home_directory() / "ssh_config.d" / "defaults.conf" }}
+  Include {{ home_directory() / ".config" / "ssh_config.d" / "defaults.conf" }}
   EOF
   )
   if ! grep -Fzq "$SSH_CONFIG" '{{ ssh_config_file }}'; then
