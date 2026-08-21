@@ -23,8 +23,6 @@ brew "rustup"
 
 # Python
 brew "uv"
-brew "ty"
-brew "ruff"
 
 # Fonts
 cask "font-intel-one-mono"
