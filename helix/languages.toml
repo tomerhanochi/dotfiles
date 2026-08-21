@@ -1,9 +1,9 @@
 [language-server.ruff]
-command = "ruff"
+command = "uvx ruff"
 args = ["server"]
 
 [language-server.ty]
-command = "ty"
+command = "uvx ty"
 args = ["server"]
 
 [language-server.rust-analyzer.config]
@@ -18,7 +18,7 @@ command = "clippy"
 [[language]]
 name = "python"
 auto-format = true
-formatter = { command = "sh", args = ["-c", "ruff check --fix - | ruff format -"] }
+formatter = { command = "sh", args = ["-c", "uvx ruff check --fix - | uvx ruff format -"] }
 language-servers = [
   "ty",
   "ruff",
