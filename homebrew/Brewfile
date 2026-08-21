@@ -12,6 +12,7 @@ brew "atuin"
 brew "jq"
 brew "just"
 brew "starship"
+brew "yazi"
 
 # Containers
 brew "docker"

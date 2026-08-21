@@ -1,6 +1,7 @@
 theme = "jetbrains_dark"
 
 [editor]
+bufferline = "always"
 line-number = "relative"
 mouse = false
 soft-wrap.enable = true
@@ -14,3 +15,19 @@ display-inlay-hints = true
 
 [editor.file-picker]
 hidden = false
+
+[keys.normal.space]
+# Taken from https://yazi-rs.github.io/docs/tips/#helix
+t = [
+	':sh rm -f /tmp/unique-ca1ea106',
+	':insert-output yazi "%{buffer_name}" --chooser-file=/tmp/unique-ca1ea106',
+	':sh printf "\x1b[?1049h\x1b[?2004h" > /dev/tty',
+	':open %sh{cat /tmp/unique-ca1ea106}',
+	':redraw',
+	':set mouse false',
+]
+
+[keys.normal.C-b]
+a = ":buffer-close-all"
+o = ":buffer-close-others"
+s = ":buffer-close"
